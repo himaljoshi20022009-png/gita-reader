@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#13251f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Gita Reader" />
+    <title>Gita, One Verse at a Time</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Gita reader home">
+          <span class="brand-mark" aria-hidden="true">ॐ</span>
+          <span>Gita <em>one verse at a time</em></span>
+        </a>
+        <button id="restartButton" class="text-button" type="button">Start again</button>
+      </header>
+
+      <section class="intro" id="top" aria-labelledby="pageTitle">
+        <p class="eyebrow">A quiet daily reading</p>
+        <h1 id="pageTitle">A single verse.<br /><i>A moment to reflect.</i></h1>
+        <p class="intro-copy">Read the Bhagavad Gita in its traditional order, with an English rendition and a clear English meaning.</p>
+      </section>
+
+      <section class="reader" aria-label="Verse reader">
+        <div class="reader-meta">
+          <div>
+            <p class="chapter-label" id="chapterTitle">Chapter</p>
+            <p class="chapter-name" id="chapterName"></p>
+          </div>
+          <p class="progress" id="progressText" aria-live="polite"></p>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+        <article class="verse-card">
+          <p class="section-kicker" id="reference">Bhagavad Gita</p>
+          <p class="sanskrit" id="sanskritVerse" lang="sa"></p>
+          <div class="divider"><span></span></div>
+          <h2>Verse in English</h2>
+          <blockquote id="englishVerse"></blockquote>
+        </article>
+
+        <article class="meaning-card">
+          <div class="meaning-heading">
+            <div>
+              <p class="section-kicker">The heart of the verse</p>
+              <h2>Meaning in English</h2>
+            </div>
+            <span class="lotus" aria-hidden="true">✦</span>
+          </div>
+          <p id="meaningText"></p>
+          <p id="reflectionText" class="reflection" hidden></p>
+        </article>
+
+        <nav class="controls" aria-label="Verse navigation">
+          <button class="nav-button" id="previousButton" type="button"><span aria-hidden="true">←</span> Previous</button>
+          <button class="nav-button primary" id="nextButton" type="button">Next verse <span aria-hidden="true">→</span></button>
+        </nav>
+      </section>
+
+      <section class="jump-panel" aria-label="Choose a verse">
+        <p class="section-kicker">Find your place</p>
+        <div class="jump-controls">
+          <label>Chapter <select id="chapterSelect" aria-label="Select chapter"></select></label>
+          <label>Verse <select id="verseSelect" aria-label="Select verse"></select></label>
+          <button id="goButton" type="button">Go to verse</button>
+        </div>
+      </section>
+
+      <footer>
+        <p>Your place is saved on this device. Use <kbd>←</kbd> and <kbd>→</kbd> to move between verses.</p>
+        <button id="installButton" class="install-button" type="button" hidden>Install Gita Reader</button>
+        <p id="installHint" class="install-hint">On your phone, open the reader in your browser and choose <strong>Add to Home Screen</strong> or <strong>Install app</strong>.</p>
+        <p class="source-note">Text: Sanskrit Bhagavad Gita; English renditions include Shri Purohit Swami (1935, public domain) and Swami Sivananda. Explanatory notes are shown when available from the open dataset.</p>
+      </footer>
+    </main>
+    <script src="gita-verses.js"></script>
+    <script src="gita-meanings.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
